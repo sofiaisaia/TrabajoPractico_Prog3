@@ -1,0 +1,87 @@
+﻿@model CrudMVCApp.Models.Persona
+
+@{
+    ViewData["Title"] = "Delete"; // Título de la página
+}
+
+<h1>Eliminar Persona</h1> <!-- Encabezado principal -->
+
+<h3>¿Estás seguro de eliminar esta persona?</h3> <!-- Mensaje de confirmación -->
+
+<div>
+    <hr />
+    <!-- Lista de detalles de la persona a eliminar -->
+    <dl class="row">
+        <!-- Nombre -->
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <!-- Apellido -->
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Apellido)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Apellido)
+        </dd>
+        <!-- DNI -->
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Dni)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Dni)
+        </dd>
+        <!-- CUIT -->
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Cuit)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Cuit)
+        </dd>
+        <!-- Fútbol -->
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Futbol)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Futbol)
+        </dd>
+        <!-- Básquet -->
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Basquet)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Basquet)
+        </dd>
+        <!-- Otros deportes -->
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Otros)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Otros)
+        </dd>
+        <!-- Género -->
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Genero)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Genero)
+        </dd>
+    </dl>
+
+    <!-- Formulario para confirmar la eliminación -->
+    <form asp-action="Delete">
+        <!-- Campo oculto con el Id de la persona -->
+        <input type="hidden" asp-for="Id" />
+        <!-- Botón para eliminar la persona -->
+        <button type="submit" class="btn btn-danger">
+            Eliminar <i class="bi bi-trash"></i>
+        </button>
+        |
+        <!-- Botón para volver al listado sin eliminar -->
+        <a asp-action="Index" class="btn btn-secondary">
+            Volver a Listado <i class="bi bi-backspace"></i>
+        </a>
+    </form>
+</div>

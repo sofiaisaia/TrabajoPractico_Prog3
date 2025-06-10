@@ -1,0 +1,98 @@
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+body {
+    margin-bottom: 60px;
+    /* Fondo degradado pastel de azul a rosa */
+    background: linear-gradient(139deg, #83a4ffad 0%, #eaf0ff 100%);
+    min-height: 100vh;
+}
+
+/* Navbar pastel */
+nav.navbar {
+    background: linear-gradient(139deg, #83a4ffad 0%, #eaf0ff 100%);
+}
+
+/* Botones con transición y efecto hover */
+.btn {
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+.btn:hover, .btn:focus {
+    box-shadow: 0 2px 8px #b6b6f7aa;
+    filter: brightness(1.08);
+}
+
+/* Animación de rebote SOLO cuando el mouse está sobre el botón */
+.btn:hover .bi,
+.btn:focus .bi {
+    animation: bounce 0.5s;
+}
+.bi {
+    display: inline-block;
+    transition: transform 0.2s;
+}
+
+@keyframes bounce {
+    0%   { transform: translateY(0);}
+    30%  { transform: translateY(-8px);}
+    50%  { transform: translateY(0);}
+    70%  { transform: translateY(-4px);}
+    100% { transform: translateY(0);}
+}
+
+/* Tabla con sombra, bordes redondeados y animación de aparición */
+.table {
+    box-shadow: 0 4px 24px #b6b6f733;
+    background: #fff;
+    border-radius: 12px;
+    animation: fadeIn 0.7s;
+    border-collapse: separate;
+    border-spacing: 0 0.5rem;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px);}
+    to { opacity: 1; transform: none;}
+}
+
+/* Hover en filas de la tabla */
+     .table tbody tr:hover {
+    background: #f3f8ff;
+    transition: background 0.2s;
+}
+
+/* Redondear solo las esquinas superiores de los encabezados de la tabla */
+.table thead th:first-child {
+    border-top-left-radius: 6px;
+}
+.table thead th:last-child {
+    border-top-right-radius: 6px;
+}
+
+/* Redondear solo las esquinas inferiores de la última fila de la tabla */
+.table tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 6px;
+}
+.table tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 6px;
+}
+
+/* Títulos destacados */
+h1, h2, h3 {
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+

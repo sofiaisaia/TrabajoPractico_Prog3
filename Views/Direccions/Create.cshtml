@@ -1,0 +1,74 @@
+﻿@model CrudMVCApp.Models.Direccion
+
+@{
+    ViewData["Title"] = "Crear Dirección";
+}
+
+<h1>Crear Dirección</h1> <!-- Encabezado principal -->
+
+<h4>Dirección</h4> <!-- Subtítulo -->
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <!-- Formulario para crear una nueva dirección -->
+        <form asp-action="Create" method="post">
+            @Html.AntiForgeryToken()
+            <!-- Muestra los errores de validación del modelo -->
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            @if (!ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger">
+                    <ul>
+                    @foreach (var entry in ViewData.ModelState)
+                    {
+                        foreach (var error in entry.Value.Errors)
+                        {
+                            <li>@entry.Key: @error.ErrorMessage</li>
+                        }
+                    }
+                    </ul>
+                </div>
+            }
+
+            <!-- Campo para la calle -->
+            <div class="form-group">
+                <label asp-for="Calle" class="control-label"></label>
+                <input asp-for="Calle" class="form-control" />
+                <span asp-validation-for="Calle" class="text-danger"></span>
+            </div>
+            <!-- Campo para la ciudad -->
+            <div class="form-group">
+                <label asp-for="Ciudad" class="control-label"></label>
+                <input asp-for="Ciudad" class="form-control" />
+                <span asp-validation-for="Ciudad" class="text-danger"></span>
+            </div>
+            <!-- Campo para el código postal -->
+            <div class="form-group">
+                <label asp-for="CodigoPostal" class="control-label"></label>
+                <input asp-for="CodigoPostal" class="form-control" />
+                <span asp-validation-for="CodigoPostal" class="text-danger"></span>
+            </div>
+            <!-- Selector para la persona asociada -->
+            <div class="form-group">
+                <label asp-for="PersonaId" class="control-label"></label>
+                <select asp-for="PersonaId" class="form-control" asp-items="ViewBag.PersonaId"></select>
+            </div>
+            <br />
+            <!-- Botones de acción: Crear y Volver al listado -->
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">
+                    <i class="bi bi-geo-alt-plus"></i> Crear
+                </button>
+                |
+                <a asp-action="Index" class="btn btn-secondary">
+                    Volver a Listado <i class="bi bi-backspace"></i>
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

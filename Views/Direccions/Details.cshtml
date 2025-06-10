@@ -1,0 +1,50 @@
+﻿@model CrudMVCApp.Models.Direccion
+
+@{
+    ViewData["Title"] = "Detalle de Dirección";
+}
+
+<h1>Detalle de Dirección</h1> <!-- Encabezado principal -->
+
+<div>
+    <h4>Dirección</h4> <!-- Subtítulo -->
+    <hr />
+    <!-- Lista de detalles de la dirección -->
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Calle)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Calle)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Ciudad)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ciudad)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CodigoPostal)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CodigoPostal)
+        </dd>
+        <dt class="col-sm-2">
+            Persona
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Persona?.Nombre @Model.Persona?.Apellido
+        </dd>
+    </dl>
+</div>
+<div>
+    <!-- Botón para editar la dirección -->
+    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-outline-secondary">
+        Editar <i class="bi bi-pen"></i>
+    </a>
+    |
+    <!-- Botón para volver al listado -->
+    <a asp-action="Index" class="btn btn-secondary">
+        Volver a Listado <i class="bi bi-backspace"></i>
+    </a>
+</div>

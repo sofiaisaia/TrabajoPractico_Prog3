@@ -1,0 +1,64 @@
+﻿@model IEnumerable<CrudMVCApp.Models.Direccion>
+
+@{
+    ViewData["Title"] = "Direcciones";
+}
+
+<h1 class="titleindex">Direcciones</h1>
+<p>
+    <!-- Botón para crear una nueva dirección con ícono -->
+    <a asp-action="Create" class="btn btn-outline-primary">
+        <i class="bi bi-geo-alt-plus"></i> Nueva dirección
+    </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Calle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ciudad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodigoPostal)
+            </th>
+            <th>
+                Persona
+            </th>
+            <th></th> <!-- Acciones -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="persona-row">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Calle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ciudad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CodigoPostal)
+                </td>
+                <td>
+                    @item.Persona?.Nombre @item.Persona?.Apellido
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-secondary">
+                        Editar <i class="bi bi-pen icon-animado"></i>
+                    </a>
+                    |
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-warning">
+                        Detalles <i class="bi bi-info-circle icon-animado"></i>
+                    </a>
+                    |
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger">
+                        Eliminar <i class="bi bi-trash icon-spin"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

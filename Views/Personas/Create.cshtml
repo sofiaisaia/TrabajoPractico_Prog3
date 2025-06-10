@@ -1,0 +1,99 @@
+﻿@model CrudMVCApp.Models.Persona
+
+@{
+    ViewData["Title"] = "Create"; // Título de la página
+}
+
+<h1>Crear Persona</h1> <!-- Encabezado principal -->
+
+<h4>Persona</h4> <!-- Subtítulo -->
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <!-- Formulario para crear una nueva persona -->
+        <form asp-action="Create">
+            <!-- Muestra los errores de validación del modelo -->
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!-- Campo para el nombre -->
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <!-- Campo para el apellido -->
+            <div class="form-group">
+                <label asp-for="Apellido" class="control-label"></label>
+                <input asp-for="Apellido" class="form-control" />
+                <span asp-validation-for="Apellido" class="text-danger"></span>
+            </div>
+            <!-- Campo para el DNI -->
+            <div class="form-group">
+                <label asp-for="Dni" class="control-label"></label>
+                <input asp-for="Dni" class="form-control" />
+                <span asp-validation-for="Dni" class="text-danger"></span>
+            </div>
+            <!-- Campo para el CUIT -->
+            <div class="form-group">
+                <label asp-for="Cuit" class="control-label"></label>
+                <input asp-for="Cuit" class="form-control" />
+                <span asp-validation-for="Cuit" class="text-danger"></span>
+            </div>
+
+            <!-- Sección de deportes -->
+            <h7>Deporte </h7>
+            <ul>
+                <!-- Checkbox para Fútbol -->
+                <div class="form-group">
+                    <div class="form-check">
+                        <input asp-for="Futbol" class="form-check-input" />
+                        <label asp-for="Futbol" class="form-check-label"></label>
+                    </div>
+                </div>
+                <!-- Checkbox para Básquet -->
+                <div class="form-group">
+                    <div class="form-check">
+                        <input asp-for="Basquet" class="form-check-input" />
+                        <label asp-for="Basquet" class="form-check-label"></label>
+                    </div>
+                </div>
+                <!-- Checkbox para Otros deportes -->
+                <div class="form-group">
+                    <div class="form-check">
+                        <input asp-for="Otros" class="form-check-input" />
+                        <label asp-for="Otros" class="form-check-label"></label>
+                    </div>
+                </div>
+            </ul>
+
+            <!-- Selector para el género -->
+            <div class="form-group">
+                <label asp-for="Genero" class="control-label"></label>
+                <select asp-for="Genero" class="form-control">
+                    <option value="">Seleccione...</option>
+                    <option value="M">Masculino</option>
+                    <option value="F">Femenino</option>
+                    <option value="X">Otro</option>
+                </select>
+                <span asp-validation-for="Genero" class="text-danger"></span>
+            </div>
+            <br />
+            <!-- Botones de acción: Crear y Volver a Listado -->
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">
+                    <i class="bi bi-person-plus"></i> Crear
+                </button>
+                |
+                <a asp-action="Index" class="btn btn-secondary">
+                    Volver a Listado <i class="bi bi-backspace"></i></a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+     
+}

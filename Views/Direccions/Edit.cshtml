@@ -1,0 +1,63 @@
+﻿@model CrudMVCApp.Models.Direccion
+
+@{
+    ViewData["Title"] = "Editar Dirección";
+}
+
+<h1>Editar Dirección</h1> <!-- Encabezado principal -->
+
+<h4>Dirección</h4> <!-- Subtítulo -->
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <!-- Formulario para editar una dirección -->
+        <form asp-action="Edit">
+            <!-- Muestra los errores de validación del modelo -->
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <!-- Campo oculto para el Id de la dirección -->
+            <input type="hidden" asp-for="Id" />
+
+            <!-- Campo para la calle -->
+            <div class="form-group">
+                <label asp-for="Calle" class="control-label"></label>
+                <input asp-for="Calle" class="form-control" />
+                <span asp-validation-for="Calle" class="text-danger"></span>
+            </div>
+            <!-- Campo para la ciudad -->
+            <div class="form-group">
+                <label asp-for="Ciudad" class="control-label"></label>
+                <input asp-for="Ciudad" class="form-control" />
+                <span asp-validation-for="Ciudad" class="text-danger"></span>
+            </div>
+            <!-- Campo para el código postal -->
+            <div class="form-group">
+                <label asp-for="CodigoPostal" class="control-label"></label>
+                <input asp-for="CodigoPostal" class="form-control" />
+                <span asp-validation-for="CodigoPostal" class="text-danger"></span>
+            </div>
+            <!-- Selector para la persona asociada -->
+            <div class="form-group">
+                <label asp-for="PersonaId" class="control-label"></label>
+                <select asp-for="PersonaId" class="form-control" asp-items="ViewBag.PersonaId"></select>
+                <span asp-validation-for="PersonaId" class="text-danger"></span>
+            </div>
+            <br />
+            <!-- Botones de acción: Guardar y Volver al listado -->
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">
+                    Guardar <i class="bi bi-bookmark-check"></i>
+                </button>
+                |
+                <a asp-action="Index" class="btn btn-secondary">
+                    Volver a Listado <i class="bi bi-backspace"></i>
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

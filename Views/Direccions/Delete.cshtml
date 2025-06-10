@@ -1,0 +1,65 @@
+﻿@model CrudMVCApp.Models.Direccion
+
+@{
+    ViewData["Title"] = "Eliminar Dirección";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Eliminar Dirección</title>
+</head>
+<body>
+
+<h1>Eliminar Dirección</h1> <!-- Encabezado principal -->
+
+<h3>¿Estás seguro de eliminar esta dirección?</h3> <!-- Mensaje de confirmación -->
+
+<div>
+    <h4>Dirección</h4> <!-- Subtítulo -->
+    <hr />
+    <!-- Lista de detalles de la dirección a eliminar -->
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Calle)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Calle)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Ciudad)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ciudad)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CodigoPostal)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CodigoPostal)
+        </dd>
+        <dt class="col-sm-2">
+            Persona
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Persona?.Nombre @Model.Persona?.Apellido
+        </dd>
+    </dl>
+
+    <!-- Formulario para confirmar la eliminación -->
+    <form asp-action="Delete" method="post">
+        @Html.AntiForgeryToken()
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">
+            Eliminar <i class="bi bi-trash"></i>
+        </button>
+        |
+        <a asp-action="Index" class="btn btn-secondary">
+            Volver a Listado <i class="bi bi-backspace"></i>
+        </a>
+    </form>
+</div>
+</body>
+</html>
