@@ -32,7 +32,6 @@ Aplicación web ASP.NET Core Razor Pages para la gestión de productos.
 
 1. Clona el repositorio:
 
-   git clone https://github.com/tu-usuario/CrudMVCApp.git
 
 2. Abre la solución en Visual Studio 2022 o superior.
    
